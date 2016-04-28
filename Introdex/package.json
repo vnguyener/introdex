@@ -1,5 +1,5 @@
 {
-  "name": "angular2-quickstart",
+  "name": "introdex",
   "version": "1.0.0",
   "scripts": {
     "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
@@ -7,21 +7,33 @@
     "postinstall": "typings install",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
-    "typings": "typings"
+    "typings": "typings",
+    "clean": "gulp clean",
+    "compile": "gulp compile",
+    "build": "gulp build"
   },
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/vnguyener/Pokemon-API.git"
+  } ,
   "license": "ISC",
   "dependencies": {
-    // "angular2": "2.0.0-beta.16",
-    // "systemjs": "0.19.26",
-    // "es6-shim": "^0.35.0",
-    // "reflect-metadata": "0.1.2",
-    // "rxjs": "5.0.0-beta.2",
-    // "zone.js": "0.6.12"
+    "angular2": "2.0.0-beta.16",
+    "systemjs": "0.19.26",
+    "es6-shim": "^0.35.0",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.2",
+    "zone.js": "0.6.12"
   },
   "devDependencies": {
-    // "concurrently": "^2.0.0",
-    // "lite-server": "^2.2.0",
-    // "typescript": "^1.8.10",
-    // "typings":"^0.8.1"
+    "concurrently": "^2.0.0",
+    "lite-server": "^2.2.0",
+    "typescript": "^1.8.10",
+    "typings": "^0.8.1",
+    "gulp": "^3.9.1",
+    "gulp-tslint": "^4.3.3",
+    "gulp-typescript": "^2.12.0",
+    "tslint": "^3.5.0",
+    "del": "^2.2.0"
   }
 }
