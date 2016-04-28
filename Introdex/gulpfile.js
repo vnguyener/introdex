@@ -38,5 +38,5 @@ gulp.task("libs", function() {
 });
 
 gulp.task("build", ["compile", "resources", "libs"], function() {
-    console.log("Building the project ...");
+    console.log("Typescript.. Jypescript.. Japescript.. Javscript.. Javascript ...");
 });
