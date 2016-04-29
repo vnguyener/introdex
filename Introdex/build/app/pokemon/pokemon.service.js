@@ -11,7 +11,7 @@ System.register(["angular2/core", "angular2/http", "rxjs/Rx"], function(exports_
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, http_1, Rx_1;
-    var PokeService;
+    var Pokemon, PokeService;
     return {
         setters:[
             function (core_1_1) {
@@ -25,6 +25,13 @@ System.register(["angular2/core", "angular2/http", "rxjs/Rx"], function(exports_
             }],
         execute: function() {
             // todo: add class
+            Pokemon = (function () {
+                function Pokemon(id, name) {
+                    this.id = id;
+                }
+                return Pokemon;
+            }());
+            exports_1("Pokemon", Pokemon);
             PokeService = (function () {
                 function PokeService(_http) {
                     var _this = this;
@@ -32,13 +39,12 @@ System.register(["angular2/core", "angular2/http", "rxjs/Rx"], function(exports_
                     this.getPokemon = function () {
                         return _this._http.get("http://pokeapi.co/api/v2/pokemon/")
                             .map(function (response) { return response.json(); })
-                            .toPromise()
                             .catch(_this.logError);
                     };
                     this.getPokemonDetails = function (value) {
                         return _this._http.get("http://pokeapi.co/api/v2/pokemon/" + value)
                             .map(function (response) { return response.json(); })
-                            .toPromise()
+                            .do(function (data) { return console.log(data); })
                             .catch(_this.logError);
                     };
                     this.logError = function (error) {

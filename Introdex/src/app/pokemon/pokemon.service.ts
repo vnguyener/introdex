@@ -3,6 +3,10 @@ import { Http, Response } from "angular2/http";
 import { Observable } from "rxjs/Rx";
 
 // todo: add class
+export class Pokemon {
+    constructor(public id: number, name: string) {}
+}
+
 
 @Injectable()
 export class PokeService {
@@ -10,13 +14,12 @@ export class PokeService {
     getPokemon = () => {
         return this._http.get("http://pokeapi.co/api/v2/pokemon/")
             .map((response: Response) => response.json())
-            .toPromise()
             .catch(this.logError);
     };
     getPokemonDetails = (value: Number) => {
         return this._http.get("http://pokeapi.co/api/v2/pokemon/" + value)
-            .map((response: Response) => response.json())
-            .toPromise()
+            .map((response: Response) => <Pokemon>response.json())
+            .do(data => console.log(data))
             .catch(this.logError);
     };
     private logError = (error: Response) => {

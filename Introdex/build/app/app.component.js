@@ -1,4 +1,4 @@
-System.register(["angular2/core", "angular2/http", "./pokemon/pokemon-list.component", "./pokemon/pokemon.service"], function(exports_1, context_1) {
+System.register(["angular2/core", "angular2/http", "angular2/router", "./pokemon/pokemon-details.component", "./pokemon/pokemon.service"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(["angular2/core", "angular2/http", "./pokemon/pokemon-list.compo
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1, pokemon_list_component_1, pokemon_service_1;
+    var core_1, http_1, router_1, pokemon_details_component_1, pokemon_service_1;
     var AppComponent;
     return {
         setters:[
@@ -20,13 +20,17 @@ System.register(["angular2/core", "angular2/http", "./pokemon/pokemon-list.compo
             function (http_1_1) {
                 http_1 = http_1_1;
             },
-            function (pokemon_list_component_1_1) {
-                pokemon_list_component_1 = pokemon_list_component_1_1;
+            function (router_1_1) {
+                router_1 = router_1_1;
+            },
+            function (pokemon_details_component_1_1) {
+                pokemon_details_component_1 = pokemon_details_component_1_1;
             },
             function (pokemon_service_1_1) {
                 pokemon_service_1 = pokemon_service_1_1;
             }],
         execute: function() {
+            // todo: add pokemon.component barrel
             AppComponent = (function () {
                 function AppComponent() {
                 }
@@ -36,12 +40,19 @@ System.register(["angular2/core", "angular2/http", "./pokemon/pokemon-list.compo
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: "app-main",
-                        templateUrl: "./app/app.html",
-                        directives: [pokemon_list_component_1.PokemonListComponent],
+                        templateUrl: "./app/app.component.html",
+                        directives: [
+                            router_1.ROUTER_DIRECTIVES,
+                            pokemon_details_component_1.PokemonDetailsComponent],
                         providers: [
+                            router_1.ROUTER_PROVIDERS,
                             http_1.HTTP_PROVIDERS,
                             pokemon_service_1.PokeService]
-                    }), 
+                    }),
+                    router_1.RouteConfig([
+                        { path: "/pokemon/1", component: pokemon_details_component_1.PokemonDetailsComponent, data: { id: 1 }, useAsDefault: true },
+                        { path: "/pokemon/:id", name: "PokemonDetail", component: pokemon_details_component_1.PokemonDetailsComponent }
+                    ]), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
                 return AppComponent;

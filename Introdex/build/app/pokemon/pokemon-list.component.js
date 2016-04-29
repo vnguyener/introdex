@@ -34,7 +34,7 @@ System.register(["angular2/core", "./pokemon.service"], function(exports_1, cont
                 PokemonListComponent.prototype.ngOnInit = function () { this.getPokemon(); };
                 PokemonListComponent = __decorate([
                     core_1.Component({
-                        selector: "poke-list",
+                        selector: "pokemon-list",
                         templateUrl: "app/pokemon/pokemon-list.component.html"
                     }), 
                     __metadata('design:paramtypes', [pokemon_service_1.PokeService])
