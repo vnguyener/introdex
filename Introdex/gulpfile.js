@@ -32,7 +32,9 @@ gulp.task("libs", function() {
             "systemjs/dist/system.src.js",
             "rxjs/bundles/Rx.js",
             "angular2/bundles/angular2.dev.js",
-            "angular2/bundles/router.dev.js"
+            "angular2/bundles/router.dev.js",
+            "angular2/bundles/http.dev.js"
+
         ], {cwd: "node_modules/**"})
         .pipe(gulp.dest("build/lib"));
 });
