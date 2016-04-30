@@ -18,11 +18,19 @@ gulp.task("compile", function() {
         .pipe(gulp.dest("build"));
 });
 
+// ts files
 gulp.task("resources", function() {
    return gulp.src(["src/**/*", "!**/*.ts"])
         .pipe(gulp.dest("build"));
 });
 
+// assets 
+gulp.task("assets", function() {
+    return gulp.src(["assets/**/*"])
+        .pipe(gulp.dest("build/assets"))
+})
+
+// node modules
 gulp.task("libs", function() {
     return gulp.src([
             "es6-shim/es6-shim.min.js",
@@ -38,6 +46,6 @@ gulp.task("libs", function() {
         .pipe(gulp.dest("build/lib"));
 });
 
-gulp.task("build", ["compile", "resources", "libs"], function() {
+gulp.task("build", ["compile", "resources", "libs", "assets"], function() {
     console.log("Typescript.. Jypescript.. Japescript.. Javscript.. Javascript ...");
 });
