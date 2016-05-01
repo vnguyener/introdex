@@ -1,1 +1,8 @@
-<p>{{ pokemon | json }}</p>
+<img [src]="pokemon.sprites.font_default">
+<p>{{ pokemon.name }}</p>
+<p>{{ pokemon.weight }}</p>
+<p>Moves</p>
+<ul>
+    <li *ngFor="let move of pokemon.moves">{{ move.name }}
+    </li>
+</ul>

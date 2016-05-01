@@ -1,1 +1,10 @@
-<p>{{ pokemonDetails | json }}</p>
+<div *ngIf="pokemonDetails">
+    <img [src]="pokemonDetails.sprites.front_default">
+    <p>{{ pokemonDetails.name }}</p>
+    <p>{{ pokemonDetails.weight }}</p>
+    <p>Moves</p>
+    <!--<ul>
+        <li *ngFor="let group of pokemonDetails.moves">{{ group.move.name }}
+        </li>
+    </ul>-->
+</div>

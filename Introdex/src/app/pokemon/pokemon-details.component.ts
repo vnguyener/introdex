@@ -1,7 +1,7 @@
 import { Component } from "angular2/core";
 import { RouteParams, RouteData } from "angular2/router";
 
-import { Pokemon,PokeService } from "./pokemon.service";
+import { Pokemon, PokeService } from "./pokemon.service";
 
 @Component({
   selector: "pokemon-details",
