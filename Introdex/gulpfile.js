@@ -3,7 +3,7 @@ var del = require("del");
 var tsc = require("gulp-typescript");
 var tsProject = tsc.createProject("tsconfig.json");
 var tslint = require("gulp-tslint");
-
+var sass = require("gulp-sass");
 
 // cleaning
 gulp.task("clean", function() {
@@ -23,6 +23,13 @@ gulp.task("resources", function() {
    return gulp.src(["src/**/*", "!**/*.ts"])
         .pipe(gulp.dest("build"));
 });
+
+// compiling sass
+gulp.task("sass", function() {
+    return gulp.src("assets/sass/*")
+    .pipe(sass())
+    .pipe(gulp.dest("assets/css"));
+})
 
 // assets 
 gulp.task("assets", function() {
@@ -46,6 +53,6 @@ gulp.task("libs", function() {
         .pipe(gulp.dest("build/lib"));
 });
 
-gulp.task("build", ["compile", "resources", "libs", "assets"], function() {
+gulp.task("build", ["compile", "resources", "libs" , "sass", "assets"], function() {
     console.log("Typescript.. Jypescript.. Japescript.. Javscript.. Javascript ...");
 });
