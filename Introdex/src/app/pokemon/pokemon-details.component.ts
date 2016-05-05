@@ -1,11 +1,21 @@
-import { Component } from "angular2/core";
+import { Component, Pipe, PipeTransform } from "angular2/core";
 import { RouteParams, RouteData } from "angular2/router";
 
 import { Pokemon, PokeService } from "./pokemon.service";
 
+@Pipe({name: "uppercaseFirst"})
+export class UppercaseFirstPipe implements PipeTransform {
+  transform(input: string): string {
+    if (input != null)
+    input = input.toLowerCase();
+    return input.substring(0, 1).toUpperCase() + input.substring(1);
+  }
+}
+
 @Component({
   selector: "pokemon-details",
   templateUrl: "app/pokemon/pokemon-details.component.html",
+  pipes: [UppercaseFirstPipe]
 })
 
 

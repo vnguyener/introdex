@@ -1,10 +1,13 @@
 <div *ngIf="pokemonDetails">
     <img [src]="pokemonDetails.sprites.front_default">
-    <p>{{ pokemonDetails.name }}</p>
-    <p>{{ pokemonDetails.weight }}</p>
-    <p>Moves</p>
-    <ul>
-        <li *ngFor="#group of getMoves();">{{ group.move.name }}
-        </li>
-    </ul>
+    <div>
+        <p>{{ pokemonDetails.name | uppercaseFirst}}</p>
+        <p>Type: <span>{{pokemonDetails.types[0].type.name}} / {{pokemonDetails.types[1].type.name}}</span> </p>
+        <p>Weight: <span>{{ pokemonDetails.weight }}</span> </p>
+        <p>Moves</p>
+        <ul>
+            <li *ngFor="#group of getMoves();">{{ group.move.name }}
+            </li>
+        </ul>
+    </div>
 </div>
