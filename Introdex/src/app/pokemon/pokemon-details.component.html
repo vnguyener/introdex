@@ -3,8 +3,8 @@
     <p>{{ pokemonDetails.name }}</p>
     <p>{{ pokemonDetails.weight }}</p>
     <p>Moves</p>
-    <!--<ul>
-        <li *ngFor="let group of pokemonDetails.moves">{{ group.move.name }}
+    <ul>
+        <li *ngFor="#group of getMoves();">{{ group.move.name }}
         </li>
-    </ul>-->
+    </ul>
 </div>

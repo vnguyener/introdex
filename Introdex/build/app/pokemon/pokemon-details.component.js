@@ -32,6 +32,9 @@ System.register(["angular2/core", "angular2/router", "./pokemon.service"], funct
                         _this._pokeService.getPokemonDetails(id)
                             .subscribe(function (pokemon) { return _this.pokemonDetails = pokemon; }, function (error) { return _this.errorMessage = error; });
                     };
+                    this.getMoves = function () {
+                        return _this.pokemonDetails.moves;
+                    };
                     this.id = parseInt(params.get("id") ? routeData.get("id") : 1);
                 }
                 PokemonDetailsComponent.prototype.ngOnInit = function () { this.getPokemon(this.id); };

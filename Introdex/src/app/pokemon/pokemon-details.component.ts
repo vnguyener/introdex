@@ -28,4 +28,8 @@ export class PokemonDetailsComponent {
         error => this.errorMessage = <any>error
       );
   };
+
+  getMoves = () => {
+    return this.pokemonDetails.moves;
+  };
 }

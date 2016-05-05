@@ -4,7 +4,10 @@ import { Observable } from "rxjs/Rx";
 
 // todo: add class
 export class Pokemon {
-    constructor(public id: number, name: string) {}
+    id: number;
+    name: string;
+    moves: Array<any>;
+    constructor() {}
 }
 
 

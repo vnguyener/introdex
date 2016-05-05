@@ -26,8 +26,7 @@ System.register(["angular2/core", "angular2/http", "rxjs/Rx"], function(exports_
         execute: function() {
             // todo: add class
             Pokemon = (function () {
-                function Pokemon(id, name) {
-                    this.id = id;
+                function Pokemon() {
                 }
                 return Pokemon;
             }());
