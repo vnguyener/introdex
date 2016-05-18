@@ -1,3 +1,5 @@
+> Simple Angular 2 Project to build a Pokemon-like Intro combined with Professor Oak telling you about each Poké.
+
 **Global Deps**
 
 ```javascript
