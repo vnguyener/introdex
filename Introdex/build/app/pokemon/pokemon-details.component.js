@@ -38,9 +38,6 @@ System.register(["angular2/core", "angular2/router", "./pokemon.service", "../sh
                     this.getMoves = function () {
                         return _this.pokemonDetails.moves;
                     };
-                    this.getRandomPokemon = function () {
-                        return Math.floor(Math.random() * (1 - 720)) + 720;
-                    };
                     this.id = parseInt(params.get("id"));
                 }
                 PokemonDetailsComponent.prototype.ngOnInit = function () {

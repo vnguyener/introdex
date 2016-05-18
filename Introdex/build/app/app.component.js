@@ -53,7 +53,7 @@ System.register(["angular2/core", "angular2/http", "angular2/router", "./pokemon
                             pokemon_service_1.PokeService]
                     }),
                     router_1.RouteConfig([
-                        { path: "/pokemon/:id", name: "Details", component: pokemon_details_component_1.PokemonDetailsComponent }
+                        { path: "/pokedex/:id", name: "Pokedex", component: pokemon_details_component_1.PokemonDetailsComponent }
                     ]), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);

@@ -1,9 +1,40 @@
+
+
 .main-container {
     font-family: 'Press Start 2P', cursive;
     font-size: 7px;
+    margin: 25px auto; 
+    text-align: center;
+    
+    .profoak-container {
+        padding: 30px;
+        position: relative;
+        left: 2%;
         
-    img.prof-oak {
-        height: 100px;
+        img.prof-oak {
+            height: 125px;
+        }
+    
+        img.pokemon-sprite {
+            position: relative;
+            left: -5%;
+            top: 25px;
+        }
+    }
+    
+    .main-menu {
+        text-align: center;
+        padding: 20px;
+        width: 20%;
+        border-radius: 7px;
+        margin: 0 auto;
+        
+        a {
+            text-decoration: none;
+            color: #351131;
+            font-size: 2em;
+        }
     }
 }
+
 

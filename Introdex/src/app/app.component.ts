@@ -20,9 +20,8 @@ import { PokeService } from "./pokemon/pokemon.service";
 })
 
 @RouteConfig([
-    { path: "/pokemon/:id", name: "Details", component: PokemonDetailsComponent }
+    { path: "/pokedex/:id", name: "Pokedex", component: PokemonDetailsComponent }
 ])
-
 
 export class AppComponent implements OnInit {
     id: number;

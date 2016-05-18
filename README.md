@@ -16,4 +16,5 @@ professor oak dialogue
 change image size based on pokemon height
 pokemon cries oninit
 more views!
+pokemon list
 ```
