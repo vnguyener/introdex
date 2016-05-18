@@ -1,8 +1,9 @@
+<img class="prof-oak" src="../../assets/imgs/professor_oak.gif" />
 <div *ngIf="pokemonDetails">
     <img [src]="pokemonDetails.sprites.front_default">
     <div>
         <p>{{ pokemonDetails.name | uppercaseFirst}}</p>
-        <p>Type: <span>{{pokemonDetails.types[0].type.name}} / {{pokemonDetails.types[1].type.name}}</span> </p>
+        <p>Type: <span>{{pokemonDetails.types[0].type.name}}</span><span *ngIf="pokemonDetails.types[1]"> / {{pokemonDetails.types[1].type.name}}</span> </p>
         <p>Weight: <span>{{ pokemonDetails.weight }}</span> </p>
         <p>Moves</p>
         <ul>

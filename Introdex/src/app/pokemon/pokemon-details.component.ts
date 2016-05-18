@@ -1,16 +1,8 @@
-import { Component, Pipe, PipeTransform } from "angular2/core";
-import { RouteParams, RouteData } from "angular2/router";
-
-import { Pokemon, PokeService } from "./pokemon.service";
-
-@Pipe({name: "uppercaseFirst"})
-export class UppercaseFirstPipe implements PipeTransform {
-  transform(input: string): string {
-    if (input != null)
-    input = input.toLowerCase();
-    return input.substring(0, 1).toUpperCase() + input.substring(1);
-  }
-}
+import { Component } from "angular2/core";
+import { Location } from "angular2/platform/common";
+import { Router, RouteParams } from "angular2/router";
+import { PokemonDetails, PokeService } from "./pokemon.service";
+import { UppercaseFirstPipe } from "../shared/pipes";
 
 @Component({
   selector: "pokemon-details",
@@ -18,24 +10,24 @@ export class UppercaseFirstPipe implements PipeTransform {
   pipes: [UppercaseFirstPipe]
 })
 
-
-
 export class PokemonDetailsComponent {
   errorMessage: string;
   id: Number;
-  pokemonDetails: Pokemon;
+  pokemonDetails: PokemonDetails;
 
-  constructor(params: RouteParams, routeData: RouteData, private _pokeService: PokeService) {
-    this.id = parseInt(params.get("id") ? routeData.get("id") : 1);
+  constructor(private _pokeService: PokeService, params: RouteParams) {
+    this.id = parseInt(params.get("id"));
   }
 
-  ngOnInit() { this.getPokemon(this.id); }
+  ngOnInit() {
+    this.getPokemon(this.id);
+  }
 
   getPokemon = (id?: Number) => {
     this._pokeService.getPokemonDetails(id)
       .subscribe(
-        pokemon => this.pokemonDetails = pokemon,
-        error => this.errorMessage = <any>error
+      pokemon => this.pokemonDetails = pokemon,
+      error => this.errorMessage = <any>error
       );
   };
 

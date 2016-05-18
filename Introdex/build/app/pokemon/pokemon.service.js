@@ -11,7 +11,7 @@ System.register(["angular2/core", "angular2/http", "rxjs/Rx"], function(exports_
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, http_1, Rx_1;
-    var Pokemon, PokeService;
+    var PokemonDetails, PokeService;
     return {
         setters:[
             function (core_1_1) {
@@ -25,12 +25,12 @@ System.register(["angular2/core", "angular2/http", "rxjs/Rx"], function(exports_
             }],
         execute: function() {
             // todo: add class
-            Pokemon = (function () {
-                function Pokemon() {
+            PokemonDetails = (function () {
+                function PokemonDetails() {
                 }
-                return Pokemon;
+                return PokemonDetails;
             }());
-            exports_1("Pokemon", Pokemon);
+            exports_1("PokemonDetails", PokemonDetails);
             PokeService = (function () {
                 function PokeService(_http) {
                     var _this = this;

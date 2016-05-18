@@ -1,6 +1,9 @@
 <header>
 </header>
 <div class="main-container">
-    <img class="prof-oak" src="../../assets/imgs/professor_oak.gif" />
+    <section class="main-menu">
+        <a [routerLink]="['Details', { id: 1 }]">Start</a> 
+        <a [routerLink]="['Details', { id: getRandomPokemon() }]">RND</a>
+    </section>
     <router-outlet></router-outlet>
 </div>

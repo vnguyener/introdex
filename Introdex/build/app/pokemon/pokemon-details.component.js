@@ -1,4 +1,4 @@
-System.register(["angular2/core", "angular2/router", "./pokemon.service"], function(exports_1, context_1) {
+System.register(["angular2/core", "angular2/router", "./pokemon.service", "../shared/pipes"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,8 +10,8 @@ System.register(["angular2/core", "angular2/router", "./pokemon.service"], funct
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, pokemon_service_1;
-    var UppercaseFirstPipe, PokemonDetailsComponent;
+    var core_1, router_1, pokemon_service_1, pipes_1;
+    var PokemonDetailsComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -22,25 +22,13 @@ System.register(["angular2/core", "angular2/router", "./pokemon.service"], funct
             },
             function (pokemon_service_1_1) {
                 pokemon_service_1 = pokemon_service_1_1;
+            },
+            function (pipes_1_1) {
+                pipes_1 = pipes_1_1;
             }],
         execute: function() {
-            UppercaseFirstPipe = (function () {
-                function UppercaseFirstPipe() {
-                }
-                UppercaseFirstPipe.prototype.transform = function (input) {
-                    if (input != null)
-                        input = input.toLowerCase();
-                    return input.substring(0, 1).toUpperCase() + input.substring(1);
-                };
-                UppercaseFirstPipe = __decorate([
-                    core_1.Pipe({ name: "uppercaseFirst" }), 
-                    __metadata('design:paramtypes', [])
-                ], UppercaseFirstPipe);
-                return UppercaseFirstPipe;
-            }());
-            exports_1("UppercaseFirstPipe", UppercaseFirstPipe);
             PokemonDetailsComponent = (function () {
-                function PokemonDetailsComponent(params, routeData, _pokeService) {
+                function PokemonDetailsComponent(_pokeService, params) {
                     var _this = this;
                     this._pokeService = _pokeService;
                     this.getPokemon = function (id) {
@@ -50,16 +38,21 @@ System.register(["angular2/core", "angular2/router", "./pokemon.service"], funct
                     this.getMoves = function () {
                         return _this.pokemonDetails.moves;
                     };
-                    this.id = parseInt(params.get("id") ? routeData.get("id") : 1);
+                    this.getRandomPokemon = function () {
+                        return Math.floor(Math.random() * (1 - 720)) + 720;
+                    };
+                    this.id = parseInt(params.get("id"));
                 }
-                PokemonDetailsComponent.prototype.ngOnInit = function () { this.getPokemon(this.id); };
+                PokemonDetailsComponent.prototype.ngOnInit = function () {
+                    this.getPokemon(this.id);
+                };
                 PokemonDetailsComponent = __decorate([
                     core_1.Component({
                         selector: "pokemon-details",
                         templateUrl: "app/pokemon/pokemon-details.component.html",
-                        pipes: [UppercaseFirstPipe]
+                        pipes: [pipes_1.UppercaseFirstPipe]
                     }), 
-                    __metadata('design:paramtypes', [router_1.RouteParams, router_1.RouteData, pokemon_service_1.PokeService])
+                    __metadata('design:paramtypes', [pokemon_service_1.PokeService, router_1.RouteParams])
                 ], PokemonDetailsComponent);
                 return PokemonDetailsComponent;
             }());

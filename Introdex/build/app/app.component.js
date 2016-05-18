@@ -33,6 +33,9 @@ System.register(["angular2/core", "angular2/http", "angular2/router", "./pokemon
             // todo: add pokemon.component barrel
             AppComponent = (function () {
                 function AppComponent() {
+                    this.getRandomPokemon = function () {
+                        return Math.floor(Math.random() * (1 - 720)) + 720;
+                    };
                 }
                 AppComponent.prototype.ngOnInit = function () {
                     console.log("Introdex initializing...");
@@ -50,8 +53,7 @@ System.register(["angular2/core", "angular2/http", "angular2/router", "./pokemon
                             pokemon_service_1.PokeService]
                     }),
                     router_1.RouteConfig([
-                        { path: "/pokemon/1", component: pokemon_details_component_1.PokemonDetailsComponent, data: { id: 1 }, useAsDefault: true },
-                        { path: "/pokemon/:id", name: "PokemonDetail", component: pokemon_details_component_1.PokemonDetailsComponent }
+                        { path: "/pokemon/:id", name: "Details", component: pokemon_details_component_1.PokemonDetailsComponent }
                     ]), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
