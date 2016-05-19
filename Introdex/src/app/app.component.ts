@@ -2,8 +2,9 @@ import { Component, OnInit } from "angular2/core";
 import { HTTP_PROVIDERS } from "angular2/http";
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Router } from "angular2/router";
 
-import { PokemonDetailsComponent } from "./pokemon/pokemon-details.component";
-import { PokeService } from "./pokemon/pokemon.service";
+import { PokemonDetailsComponent } from "./pokemon/pokemon-details/pokemon-details.component";
+import { PokemonListComponent } from "./pokemon/pokemon-list/pokemon-list.component";
+import { PokeService } from "./shared/services/pokemon.service";
 
 // todo: add pokemon.component barrel
 
@@ -12,7 +13,7 @@ import { PokeService } from "./pokemon/pokemon.service";
     templateUrl: "./app/app.component.html",
     directives: [
         ROUTER_DIRECTIVES,
-        PokemonDetailsComponent],
+        PokemonListComponent],
     providers: [
         ROUTER_PROVIDERS,
         HTTP_PROVIDERS,

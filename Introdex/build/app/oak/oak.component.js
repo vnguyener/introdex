@@ -11,26 +11,27 @@ System.register(["angular2/core"], function(exports_1, context_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1;
-    var PokemonComponent;
+    var OakComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            PokemonComponent = (function () {
-                function PokemonComponent() {
+            OakComponent = (function () {
+                function OakComponent() {
                 }
-                PokemonComponent = __decorate([
+                OakComponent.prototype.ngOnInit = function () { };
+                OakComponent = __decorate([
                     core_1.Component({
-                        selector: "introdex",
-                        template: "<div></div>"
+                        selector: "professor-oak",
+                        templateUrl: "app/oak/oak.component.html"
                     }), 
                     __metadata('design:paramtypes', [])
-                ], PokemonComponent);
-                return PokemonComponent;
+                ], OakComponent);
+                return OakComponent;
             }());
-            exports_1("PokemonComponent", PokemonComponent);
+            exports_1("OakComponent", OakComponent);
         }
     }
 });

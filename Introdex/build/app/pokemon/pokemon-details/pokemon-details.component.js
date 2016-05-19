@@ -1,4 +1,4 @@
-System.register(["angular2/core", "angular2/router", "./pokemon.service", "../shared/pipes"], function(exports_1, context_1) {
+System.register(["angular2/core", "angular2/router", "../../shared/services/pokemon.service", "../../shared/pipes"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -31,7 +31,7 @@ System.register(["angular2/core", "angular2/router", "./pokemon.service", "../sh
                 function PokemonDetailsComponent(_pokeService, params) {
                     var _this = this;
                     this._pokeService = _pokeService;
-                    this.getPokemon = function (id) {
+                    this.getPokemonDetails = function (id) {
                         _this._pokeService.getPokemonDetails(id)
                             .subscribe(function (pokemon) { return _this.pokemonDetails = pokemon; }, function (error) { return _this.errorMessage = error; });
                     };
@@ -41,12 +41,12 @@ System.register(["angular2/core", "angular2/router", "./pokemon.service", "../sh
                     this.id = parseInt(params.get("id"));
                 }
                 PokemonDetailsComponent.prototype.ngOnInit = function () {
-                    this.getPokemon(this.id);
+                    this.getPokemonDetails(this.id);
                 };
                 PokemonDetailsComponent = __decorate([
                     core_1.Component({
                         selector: "pokemon-details",
-                        templateUrl: "app/pokemon/pokemon-details.component.html",
+                        templateUrl: "app/pokemon/pokemon-details/pokemon-details.component.html",
                         pipes: [pipes_1.UppercaseFirstPipe]
                     }), 
                     __metadata('design:paramtypes', [pokemon_service_1.PokeService, router_1.RouteParams])

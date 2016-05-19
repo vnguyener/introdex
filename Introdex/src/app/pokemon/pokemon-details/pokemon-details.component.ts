@@ -1,12 +1,12 @@
 import { Component } from "angular2/core";
 import { Location } from "angular2/platform/common";
 import { Router, RouteParams } from "angular2/router";
-import { PokemonDetails, PokeService } from "./pokemon.service";
-import { UppercaseFirstPipe } from "../shared/pipes";
+import { PokemonDetails, PokeService } from "../../shared/services/pokemon.service";
+import { UppercaseFirstPipe } from "../../shared/pipes";
 
 @Component({
   selector: "pokemon-details",
-  templateUrl: "app/pokemon/pokemon-details.component.html",
+  templateUrl: "app/pokemon/pokemon-details/pokemon-details.component.html",
   pipes: [UppercaseFirstPipe]
 })
 
@@ -20,10 +20,10 @@ export class PokemonDetailsComponent {
   }
 
   ngOnInit() {
-    this.getPokemon(this.id);
+    this.getPokemonDetails(this.id);
   }
 
-  getPokemon = (id?: Number) => {
+  getPokemonDetails = (id?: Number) => {
     this._pokeService.getPokemonDetails(id)
       .subscribe(
       pokemon => this.pokemonDetails = pokemon,
